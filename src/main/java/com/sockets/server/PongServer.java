@@ -19,13 +19,11 @@ public class PongServer {
     }
 
     private void run() throws IOException {
-        ServerSocket ss = new ServerSocket();
         InetSocketAddress x = new InetSocketAddress("localhost", 30000);
-
         while(true) {
             ServerSocketChannel s = ServerSocketChannel.open();
-
-            s.bind(x);
+            s.socket().setReceiveBufferSize(8);
+            s.socket().bind(x);
             SocketChannel sc = s.accept();
             serve(sc);
         }
