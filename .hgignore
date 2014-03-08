@@ -1,0 +1,5 @@
+glob:.gradle/**
+glob:.idea/**
+glob:build/**
+glob:classes/**
+glob:*.iml
