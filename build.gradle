@@ -2,7 +2,7 @@ apply plugin: 'java'
 
 apply plugin: 'application'
 
-mainClassName = 'Foo'
+mainClassName = 'com.sockets.server.PongServer'
 
 repositories {
     mavenCentral()
