@@ -2,7 +2,15 @@ apply plugin: 'java'
 
 apply plugin: 'application'
 
-mainClassName = 'com.sockets.server.PingClient'
+if (project.hasProperty("ping")) {
+  println("Woohoo ping");
+  mainClassName='com.sockets.server.PingClient';
+};
+
+if (project.hasProperty("pong")) {
+  println("Woohoo pong");
+  mainClassName='com.sockets.server.PongServer';
+};
 
 repositories {
     mavenCentral()
