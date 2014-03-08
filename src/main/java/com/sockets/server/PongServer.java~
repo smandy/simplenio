@@ -20,7 +20,7 @@ public class PongServer {
 
     private void run() throws IOException {
         System.out.println("Woohoo");
-        InetSocketAddress x = new InetSocketAddress("192.168.1.83", 30000);
+        InetSocketAddress x = new InetSocketAddress("localhost", 30000);
         while(true) {
             ServerSocketChannel s = ServerSocketChannel.open();
             s.socket().setReceiveBufferSize(8);
@@ -32,16 +32,13 @@ public class PongServer {
 
     private void serve(SocketChannel sc) throws IOException {
         System.out.println(String.format("Serving %s", sc));
-        ByteBuffer bb = ByteBuffer.allocateDirect(8);
+        ByteBuffer bb = ByteBuffer.allocateDirect(8).order(ByteOrder.LITTLE_ENDIAN);
         sc.socket().setReceiveBufferSize(8);
         while(true) {
             bb.clear();
             Util.readAll(sc, bb);
             bb.flip();
             long toPing = bb.getLong();
-	    if (toPing % 1000 == 0) {
-		System.out.println("Got " + toPing);
-	    };
             bb.clear();
             bb.putLong(toPing);
             bb.flip();

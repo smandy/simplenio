@@ -1,0 +1,15 @@
+apply plugin: 'java'
+
+apply plugin: 'application'
+
+mainClassName = 'com.sockets.server.PongServer''
+
+Repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.slf4j:slf4j-api:1.7.5'
+
+    testCompile "junit:junit:4.11"
+}
