@@ -6,15 +6,11 @@ import java.net.Socket;
 import java.nio.ByteBuffer;
 import java.nio.channels.SocketChannel;
 
-/**
- * Created by andy on 08/03/14.
- */
 public class PingClient {
 
     static final int REPORT_EVERY = 10;
 
     public static void main(String[] args) throws IOException {
-        Socket s = new Socket();
         InetSocketAddress address = new InetSocketAddress("skye", 30000);
         SocketChannel socketChannel = SocketChannel.open(address);
         System.out.println("WOohoo connected to " + socketChannel);

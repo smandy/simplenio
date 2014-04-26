@@ -3,3 +3,5 @@ glob:.idea/**
 glob:build/**
 glob:classes/**
 glob:*.iml
+gradle-app.setting
+libpeerconnection.log

@@ -6,9 +6,6 @@ import java.nio.ByteBuffer;
 import java.nio.channels.ServerSocketChannel;
 import java.nio.channels.SocketChannel;
 
-/**
- * Created by andy on 0w 7/03/14.
- */
 public class PongServer {
     public static void main(String[] args) throws IOException {
         new PongServer().run();
@@ -38,7 +35,6 @@ public class PongServer {
             if (toPing % 1000 == 0) {
                 System.out.println("Got " + toPing);
             }
-            ;
             bb.clear();
             bb.putLong(toPing);
             bb.flip();
